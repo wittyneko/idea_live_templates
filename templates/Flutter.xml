@@ -1,0 +1,54 @@
+<templateSet group="Flutter">
+  <template name="cstless" value="class $NAME$ extends SingleChildStatelessWidget {&#10;  const $NAME$({&#10;    Key? key,&#10;    Widget? child,&#10;  }) : super(key: key, child: child);&#10;&#10;  @override&#10;  Widget buildWithChild(BuildContext context, Widget? child) {&#10;    return Container($END$);&#10;  }&#10;}&#10;" description="New SingleChildStatelessWidget" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="cstful" value="class $NAME$ extends SingleChildStatefulWidget {&#10;  const $NAME$({&#10;    Key? key,&#10;    Widget? child,&#10;  }) : super(key: key, child: child);&#10;&#10;  @override&#10;  SingleChildState&lt;$NAME$&gt; createState() =&gt; $SNAME$();&#10;}&#10;&#10;class $SNAME$ extends SingleChildState&lt;$NAME$&gt; {&#10;  @override&#10;  Widget buildWithChild(BuildContext context, Widget? child) {&#10;    return Container($END$);&#10;  }&#10;}&#10;" description="New SingleChildStatefulWidget" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SNAME" expression="regularExpression(concat(&quot;_&quot;, NAME, &quot;State&quot;), &quot;^__&quot;, &quot;_&quot;)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="cstfbuilder" value="class $NAME$ extends SingleChildStatefulWidget {&#10;  final TransitionBuilder? builder;&#10;&#10;  const $NAME$({&#10;    Key? key,&#10;    Widget? child,&#10;    this.builder,&#10;  }) : super(key: key, child: child);&#10;&#10;  @override&#10;  SingleChildState&lt;$NAME$&gt; createState() =&gt; $SNAME$();&#10;}&#10;&#10;class $SNAME$ extends SingleChildState&lt;$NAME$&gt; {&#10;  @override&#10;  Widget buildWithChild(BuildContext context, Widget? child) {&#10;    return widget.builder?.call(context, child) ?? child ?? const SizedBox();&#10;  }&#10;}&#10;" description="New SingleChildStatefulWidget" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SNAME" expression="regularExpression(concat(&quot;_&quot;, NAME, &quot;State&quot;), &quot;^__&quot;, &quot;_&quot;)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="cstfmixin" value="class $NAME$ extends StatefulWidget with SingleChildStatefulWidgetMixin {&#10;  final Widget? _child;&#10;&#10;  const $NAME$({&#10;    Key? key,&#10;    Widget? child,&#10;  })  : _child = child,&#10;        super(key: key);&#10;&#10;  @override&#10;  Widget? get child =&gt; _child;&#10;&#10;  @override&#10;  State&lt;$NAME$&gt; createState() =&gt; $SNAME$();&#10;}&#10;&#10;class $SNAME$ extends State&lt;$NAME$&gt; with SingleChildStateMixin&lt;$NAME$&gt; {&#10;  @override&#10;  Widget buildWithChild(BuildContext context, Widget? child) {&#10;    return Container($END$);&#10;  }&#10;}&#10;" description="New StatefulWidget with SingleChildStatefulWidgetMixin" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SNAME" expression="regularExpression(concat(&quot;_&quot;, NAME, &quot;State&quot;), &quot;^__&quot;, &quot;_&quot;)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="cstfmbuilder" value="class $NAME$ extends StatefulWidget&#10;    with SingleChildStatefulWidgetMixin {&#10;  final Widget? _child;&#10;  final TransitionBuilder? builder;&#10;&#10;  const $NAME$({&#10;    Key? key,&#10;    Widget? child,&#10;    this.builder,&#10;  })  : _child = child,&#10;        super(key: key);&#10;&#10;  @override&#10;  Widget? get child =&gt; _child;&#10;&#10;  @override&#10;  State&lt;$NAME$&gt; createState() =&gt; $SNAME$();&#10;}&#10;&#10;class $SNAME$ extends State&lt;$NAME$&gt;&#10;    with SingleChildStateMixin&lt;$NAME$&gt; {&#10;  @override&#10;  Widget buildWithChild(BuildContext context, Widget? child) {&#10;    return widget.builder?.call(context, child) ?? child ?? const SizedBox();&#10;  }&#10;}&#10;" description="New StatefulWidget with SingleChildStatefulWidgetMixin" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SNAME" expression="regularExpression(concat(&quot;_&quot;, NAME, &quot;State&quot;), &quot;^__&quot;, &quot;_&quot;)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="cstlbuilder" value="class $NAME$ extends SingleChildStatelessWidget {&#10;  final TransitionBuilder? builder;&#10;&#10;  const $NAME$({&#10;    Key? key,&#10;    Widget? child,&#10;    this.builder,&#10;  }) : super(key: key, child: child);&#10;&#10;  @override&#10;  Widget buildWithChild(BuildContext context, Widget? child) {&#10;    return builder?.call(context, child) ?? child ?? const SizedBox();&#10;  }&#10;}&#10;" description="New SingleChildStatelessWidget" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="cstlmixin" value="class $NAME$ extends StatelessWidget&#10;    with SingleChildStatelessWidgetMixin {&#10;  final Widget? _child;&#10;&#10;  const $NAME$({&#10;    Key? key,&#10;    Widget? child,&#10;  })  : _child = child,&#10;        super(key: key);&#10;&#10;  @override&#10;  Widget? get child =&gt; _child;&#10;&#10;  @override&#10;  Widget buildWithChild(BuildContext context, Widget? child) {&#10;    return Container($END$);&#10;  }&#10;}&#10;" description="New StatelessWidget with SingleChildStatelessWidgetMixin" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="cstlmbuilder" value="class $NAME$ extends StatelessWidget&#10;    with SingleChildStatelessWidgetMixin {&#10;  final Widget? _child;&#10;  final TransitionBuilder? builder;&#10;&#10;  const $NAME$({&#10;    Key? key,&#10;    Widget? child,&#10;    this.builder,&#10;  })  : _child = child,&#10;        super(key: key);&#10;&#10;  @override&#10;  Widget? get child =&gt; _child;&#10;&#10;  @override&#10;  Widget buildWithChild(BuildContext context, Widget? child) {&#10;    return builder?.call(context, child) ?? child ?? const SizedBox();&#10;  }&#10;}&#10;" description="New StatelessWidget with SingleChildStatelessWidgetMixin" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+</templateSet>
